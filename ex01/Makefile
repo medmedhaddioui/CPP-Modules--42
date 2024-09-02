@@ -1,11 +1,11 @@
 NAME = phonebook
 
-SRC = main.cpp
+SRC = main.cpp Contact.cpp Phonebook.cpp
 
 OBJECT = $(SRC:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
