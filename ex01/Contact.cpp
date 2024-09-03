@@ -38,8 +38,6 @@ std::string Contact::get_Dsecret()
     return DarkSecret;
 }
 
-///////////////////////////
-
 void Contact::set_Fname(std::string str)
 {
     FirstName = str;
