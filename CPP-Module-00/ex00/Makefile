@@ -5,12 +5,12 @@ SRC = megaphone.cpp
 OBJECT = $(SRC:.cpp=.o)
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME): $(SRC)
-	$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+$(NAME): $(OBJECT)
+	$(CC) $(CPPFLAGS) $(OBJECT) -o $(NAME)
 
 clean:
 	rm -rf $(OBJECT)

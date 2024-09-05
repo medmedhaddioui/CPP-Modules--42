@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:16:38 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/08/03 22:32:52 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:31:54 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void PhoneBook::ADD ()
 
 void PhoneBook::EXIT()
 {
-    std::cout << "PhoneBook Closed !!";
+    std::cout << std::endl << "PhoneBook Closed !!";
     exit (EXIT_SUCCESS);
 }
 
@@ -73,7 +73,7 @@ void PhoneBook::SEARCH()
     for (int i = 0; i < 4; i++)
     {
         std::cout << "|";
-        std::cout <<  std::setfill (' ') << std::setw (10) ;
+        std::cout <<  std::setw (10) ;
         std::cout << arr[i];
     }
     std::cout << "|" << std::endl;
@@ -92,9 +92,9 @@ void PhoneBook::SEARCH()
 
     for (int current_i = 0; current_i < index && current_i < 8; current_i++)
     {
-        std::ostringstream convert;
-        convert << current_i + 1;
+        std::stringstream convert;
         std::string index_as_str;
+        convert << current_i + 1;
         index_as_str = convert.str();
         std::string info[4] = {index_as_str, contacts_arr[current_i].get_Fname(),
         contacts_arr[current_i].get_Lname(),contacts_arr[current_i].get_Nname()};
@@ -109,15 +109,8 @@ void PhoneBook::SEARCH()
         }
         std::cout  << "|" << std::endl;
     }
-    for (int i = 0; i < 43 ; i++)
-    {
-        if (i == 0)
-            std::cout << ' ';
-        std::cout << '-';
-    }
-    std::cout << std::endl;
-    // Issue case (Empty)
 
+    // Issue case (Empty)
     if (index == 0)
     {
         for (int i = 0; i < 4; i++)
@@ -139,7 +132,13 @@ void PhoneBook::SEARCH()
         std::cout << "PhoneBook is empty" << std::endl;
         return ; 
     }
-
+    for (int i = 0; i < 43 ; i++)
+    {
+        if (i == 0)
+            std::cout << ' ';
+        std::cout << '-';
+    }
+    std::cout << std::endl;
     // Select Index 
     std::string index_selected;
     std::cout << "Select index : ";
@@ -151,7 +150,7 @@ void PhoneBook::SEARCH()
             valid = true;
         if (valid)
         {
-            std::istringstream convert(index_selected);
+            std::stringstream convert(index_selected);
             convert >> value;
             if (!index_selected.empty() && value > 0 && value <= index && value <= 8)
                 break;
