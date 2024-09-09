@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 15:04:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/07 13:46:46 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/09/07 16:30:05 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/09/08 16:20:20 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main ()
+const std::string &Weapon::getType()
 {
-    Zombie *Zo =  zombieHorde(5, "I AM ZOMBIE");
-    for (int i = 0 ; i < 5 ; i++)
-        Zo->announce();
-    delete [] Zo;
+    return type;
 }
+void Weapon::setType(std::string type)
+{
+    this->type = type;
+}
+
+Weapon::~Weapon()
+{
+
+};

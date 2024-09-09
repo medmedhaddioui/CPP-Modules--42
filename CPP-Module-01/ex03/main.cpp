@@ -5,17 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 15:04:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/07 13:46:46 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/09/07 17:24:22 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/09/08 17:50:15 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
+#include "HumanA.hpp"
 
-int main ()
+int main()
 {
-    Zombie *Zo =  zombieHorde(5, "I AM ZOMBIE");
-    for (int i = 0 ; i < 5 ; i++)
-        Zo->announce();
-    delete [] Zo;
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
+    
+    return 0;
 }

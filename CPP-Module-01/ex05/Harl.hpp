@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 15:04:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/07 13:46:46 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/09/09 15:12:23 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/09/09 15:12:57 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main ()
-{
-    Zombie *Zo =  zombieHorde(5, "I AM ZOMBIE");
-    for (int i = 0 ; i < 5 ; i++)
-        Zo->announce();
-    delete [] Zo;
-}
+#include <iostream>
+
+class Harl
+#endif

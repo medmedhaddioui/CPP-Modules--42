@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   practice.c                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 12:35:53 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/05 18:21:57 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/09/08 15:10:06 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/09/08 17:50:05 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanB.hpp"
 
-#include <stdio.h>
-int main (int ac , char **av)
+void HumanB::attack ()
 {
-    cout_pi   
+    if(!club)
+        std::cout << name <<  " attacks with their "  <<  "rjlih" << std::endl ;
+    else
+        std::cout << name <<  " attacks with their "  <<  club->getType() << std::endl ;
+    
 }
+
+void HumanB::setWeapon(Weapon &club)
+{
+    this->club = &club;
+}
+
+HumanB::~HumanB()
+{
+    
+};

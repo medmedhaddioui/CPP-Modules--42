@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 15:04:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/07 13:46:46 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/09/07 22:06:47 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/09/08 17:07:10 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-int main ()
+#include "Weapon.hpp"
+
+class HumanA
 {
-    Zombie *Zo =  zombieHorde(5, "I AM ZOMBIE");
-    for (int i = 0 ; i < 5 ; i++)
-        Zo->announce();
-    delete [] Zo;
-}
+    private:
+        std::string name;
+        Weapon &club;
+    public:
+        void attack();
+        HumanA(std::string name, Weapon &club) : name(name), club(club) {};
+        ~HumanA();
+};
+
+#endif
