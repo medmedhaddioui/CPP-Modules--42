@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:15:37 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/08 22:45:01 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:00:50 by medmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,25 @@ int main (int ac, char **av)
 {
     std::string str;
     if (ac != 4)
+    {
         std::cerr << "Wrong Arguments" << std::endl;
+        return 1;
+    }    
     
     std::fstream infile(av[1], std::ios::in);
     if (!infile.is_open())
+    {
         std::cerr << "error file open" << std::endl;
+        return 1;
+    }
 
     std::fstream outfile("fileout.replace", std::ios::out);
     if (!outfile.is_open())
+    {
         std::cerr << "error file open" << std::endl;
+        infile.close();
+        return 1;
+    }
     
     size_t index;  
     while (getline(infile, str))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 15:11:56 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/09 15:12:21 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:05:52 by medmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 int main ()
 {
-    
+    Harl say;
+    say.complain("DEBUG");
+    say.complain("INFO");
+    say.complain("WARNING");
+    say.complain("ERROR");
 }
