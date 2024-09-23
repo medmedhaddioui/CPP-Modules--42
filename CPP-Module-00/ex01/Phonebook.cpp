@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:16:38 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/04 12:31:54 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:50:24 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void PhoneBook::SEARCH()
     }
     std::cout << std::endl;
     // Select Index 
+    
     std::string index_selected;
     std::cout << "Select index : ";
     int value ;
