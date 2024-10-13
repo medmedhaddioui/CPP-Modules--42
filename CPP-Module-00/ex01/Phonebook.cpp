@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:16:38 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/10 21:50:24 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/10/12 14:46:29 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,13 +92,12 @@ void PhoneBook::SEARCH()
 
     for (int current_i = 0; current_i < index && current_i < 8; current_i++)
     {
-        std::stringstream convert;
-        std::string index_as_str;
-        convert << current_i + 1;
-        index_as_str = convert.str();
-        std::string info[4] = {index_as_str, contacts_arr[current_i].get_Fname(),
+        std::cout << "|";
+        std::cout << std::setw (10);
+        std::cout << current_i + 1;
+        std::string info[3] = {contacts_arr[current_i].get_Fname(),
         contacts_arr[current_i].get_Lname(),contacts_arr[current_i].get_Nname()};
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             std::cout << "|";
             std::cout << std::setw (10);
@@ -132,6 +131,7 @@ void PhoneBook::SEARCH()
         std::cout << "PhoneBook is empty" << std::endl;
         return ; 
     }
+    
     for (int i = 0; i < 43 ; i++)
     {
         if (i == 0)
@@ -139,26 +139,21 @@ void PhoneBook::SEARCH()
         std::cout << '-';
     }
     std::cout << std::endl;
-    // Select Index 
     
+    // Select Index 
+    int value;
     std::string index_selected;
     std::cout << "Select index : ";
-    int value ;
-    bool valid = false;
     while (getline(std::cin, index_selected))
     {
-        if (index_selected.find_first_not_of("0123456789") == std::string::npos)
-            valid = true;
-        if (valid)
+        if (index_selected.length() == 1 && isdigit(index_selected[0]))
         {
-            std::stringstream convert(index_selected);
-            convert >> value;
-            if (!index_selected.empty() && value > 0 && value <= index && value <= 8)
+            value = index_selected[0] - '0';
+            if (value > 0 && value <= index && value <= 8)
                 break;
         }
         std::cout << "Invalid index !" << std::endl;
-        std::cout << "Select index : " ;
-        valid = false;
+        std::cout << "Select index : ";
     }
     if (index_selected.empty())
     {

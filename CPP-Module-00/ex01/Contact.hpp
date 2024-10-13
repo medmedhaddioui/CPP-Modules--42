@@ -6,10 +6,11 @@
 #include <iomanip>  
 #include <sstream>
 #include <string>
+#include <cctype> 
 
 class Contact
 {
-private:    
+private: 
     std::string FirstName;
     std::string LastName;
     std::string Nickname;
@@ -26,7 +27,6 @@ public:
     void set_Nname(std::string str);
     void set_Pnumber(std::string str);
     void set_Dsecret(std::string str);
-    
 };
 
 #endif
