@@ -9,6 +9,8 @@ class Fixed
         static const int value ;
     public:
         Fixed( void );
+        Fixed(Fixed &orignal);
+        Fixed& operator=(const Fixed &orignal);
         ~Fixed();
         int getRawBits( void ) const;
         void setRawBits( int const raw );
