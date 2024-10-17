@@ -6,7 +6,7 @@
 /*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:32:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/10/17 21:54:01 by medmed           ###   ########.fr       */
+/*   Updated: 2024/10/17 22:01:40 by medmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,22 @@ int Fixed::getRawBits( void ) const
 
 void Fixed::setRawBits( int const raw ) 
 {
-    fixed_value = raw; // edited;
+    fixed_value = raw; 
+}
+
+Fixed::Fixed(const int integer)
+{
+    std::cout << "Int constructor called" << std::endl;
+}
+Fixed::Fixed(const float number)
+{
+    std::cout << "Float constructor called" << std::endl;
+}
+float Fixed::toFloat() const
+{
+    return (0.0);
+}
+int Fixed::toInt () const 
+{
+    return 0;
 }
