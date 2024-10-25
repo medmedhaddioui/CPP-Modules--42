@@ -6,12 +6,11 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 22:16:38 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/10/12 14:46:29 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/10/22 12:57:35 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
-
 
 std::string PhoneBook::read_cmd(std::string msg)
 {
@@ -23,23 +22,19 @@ std::string PhoneBook::read_cmd(std::string msg)
             return str;
         std::cout << "Please " << contacts_arr[index].get_Fname() << msg ;
     }
-    std::cout << std::endl << "PhoneBook Closed !!";
-    exit(EXIT_SUCCESS);
+    std::cout << std::endl << "PhoneBook Closed !!" << std::endl ;
+    exit (EXIT_SUCCESS);
 }
 
-void PhoneBook::set_index()
+PhoneBook::PhoneBook()
 {
     index = 0;
 }
 
 void PhoneBook::ADD ()
 {
-    int save = -1;
-    if (index >= 8)
-    {
-        save = index;
-        index -= 8;
-    }
+    int save = index;
+    index %= 8;
     std::string str;
     contacts_arr[index].set_Fname(read_cmd("enter your FirstName: "));
     contacts_arr[index].set_Lname(read_cmd(" enter your LastName: "));
@@ -47,20 +42,18 @@ void PhoneBook::ADD ()
     contacts_arr[index].set_Pnumber(read_cmd(" enter your PhoneNumber: "));
     contacts_arr[index].set_Dsecret(read_cmd(" enter your DarkSecret: "));
     std::cout << contacts_arr[index].get_Fname() << " successfully added to phonebook [" << index + 1 << "/8]" << std::endl;
-    if (save != -1)
-        index = save;
+    index = save;
     index++;
 }
 
 void PhoneBook::EXIT()
 {
-    std::cout << std::endl << "PhoneBook Closed !!";
+    std::cout << std::endl << "PhoneBook Closed !!" << std::endl ;
     exit (EXIT_SUCCESS);
 }
 
 void PhoneBook::SEARCH()
 {
-    // Starting INDEX....
     for (int i = 0; i < 44 ; i++)
     {
         if (i == 0)
@@ -87,9 +80,6 @@ void PhoneBook::SEARCH()
             std::cout << "|";
     }
     std::cout << std::endl;
-
-    //Info Contacts
-
     for (int current_i = 0; current_i < index && current_i < 8; current_i++)
     {
         std::cout << "|";
@@ -108,8 +98,6 @@ void PhoneBook::SEARCH()
         }
         std::cout  << "|" << std::endl;
     }
-
-    // Issue case (Empty)
     if (index == 0)
     {
         for (int i = 0; i < 4; i++)
@@ -131,7 +119,6 @@ void PhoneBook::SEARCH()
         std::cout << "PhoneBook is empty" << std::endl;
         return ; 
     }
-    
     for (int i = 0; i < 43 ; i++)
     {
         if (i == 0)
@@ -139,8 +126,6 @@ void PhoneBook::SEARCH()
         std::cout << '-';
     }
     std::cout << std::endl;
-    
-    // Select Index 
     int value;
     std::string index_selected;
     std::cout << "Select index : ";

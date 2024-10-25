@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   testign.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 16:17:25 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/10/25 20:01:47 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/10/22 16:21:00 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/10/22 22:26:28 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-#define WEAPON_HPP
-
-
 #include <iostream>
-
-class Weapon
+class Simple
 {
     private:
-        std::string type;
+        int a;
     public:
-        const std::string &getType(void) const ;
-        void setType(std::string type);
-        Weapon(std::string type) : type(type) {};
-        ~Weapon();
+    Simple (int a) : a(a) {};
+    int getter()
+    {
+        return a;
+    }
 };
+int main ()
+{
+    Simple boy(5);
+    
+    Simple boy2(11);
 
-#endif
+    boy = boy2;
+    std::cout << boy.getter() << std::endl;
+    std::cout << boy2.getter()<< std::endl;
+}

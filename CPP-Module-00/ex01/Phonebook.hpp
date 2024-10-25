@@ -12,7 +12,7 @@ public:
     void ADD();
     void SEARCH();
     void EXIT();
-    void set_index();
+    PhoneBook();
     std::string read_cmd (std::string msg);
 };
 
