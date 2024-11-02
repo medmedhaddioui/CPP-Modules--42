@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:15:37 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/09/11 19:13:25 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/02 13:47:03 by medmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,15 @@ int main (int ac, char **av)
         return 1;
     }
     size_t index;  
+    std::string av2 = av[2];
     while (getline(infile, str))
     {
-        index = (str.find(av[2]));
-        if (index != std::string::npos)
+        while ((index = (str.find(av[2]))) !=  std::string::npos)
         {
-            std::string result = str.substr(0, index);
-            result = result + av[3];
-            std::string s = av[2];
-            size_t len = index + s.length() ;
-            result = result + str.substr(len , str.length() - len);
-            outfile << result;   
-        }
-        else
-            outfile << str << std::endl;
+            str.erase(index, av2.size());
+            str.insert(index, av[3]);
+        }   
+        outfile << str << std::endl;
     }
     infile.close();
     outfile.close();
