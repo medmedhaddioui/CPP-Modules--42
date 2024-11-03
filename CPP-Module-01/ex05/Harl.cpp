@@ -40,9 +40,12 @@ void Harl::complain( std::string level)
 {
     void (Harl::*PtrFunc[4]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string str[4] = {"DEBUG", "INFO" ,"WARNING","ERROR"};
-    for (int i = 0; i < 4; i++)
+    int i = 0;
+    while (i < 4 && level != str[i]) 
+        i++;
+    while (level == str[i])
     {
-        if (level == str[i])
-            (this->*PtrFunc[i]) ();
+        (this->*PtrFunc[i]) ();
+        break;
     }
 }

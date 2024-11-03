@@ -34,12 +34,15 @@ int main (int ac, char **av)
     }
     size_t index;  
     std::string av2 = av[2];
+    size_t oldindex;
     while (getline(infile, str))
     {
-        while ((index = (str.find(av[2]))) !=  std::string::npos)
+        oldindex = std::string::npos;
+        while ((index = (str.find(av[2]))) !=  std::string::npos && index != oldindex)
         {
             str.erase(index, av2.size());
             str.insert(index, av[3]);
+            oldindex = index;
         }   
         outfile << str << std::endl;
     }

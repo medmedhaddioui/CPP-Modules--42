@@ -18,5 +18,5 @@ int main ()
     say.complain("DEBUG");
     say.complain("INFO");
     say.complain("WARNING");
-    say.complain("ERROR");
+    say.complain("");
 }

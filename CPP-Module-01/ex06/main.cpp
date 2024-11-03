@@ -17,12 +17,8 @@ int main (int ac, char **av)
         return (std::cerr << "Wrong arguments" << std::endl , 1);
     std::string str[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int i = 0;
-    while (i < 4)
-    {
-        if (str[i] == av[1])
-            break;
+    while (i < 4 && str[i] != av[1])
         i++;
-    }
     Harl say;
     switch (i)
     {
