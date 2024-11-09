@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 13:32:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/09 19:13:41 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/11/09 15:12:19 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/11/09 21:03:46 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
 
 const int Fixed::fractional = 8;
 
@@ -18,10 +19,6 @@ Fixed::Fixed()
 {
     std::cout << "Default constructor called" << std::endl;
     fixed_value = 0;
-}
-Fixed:: ~Fixed()
-{
-    std::cout << "Destructor called" << std::endl;
 }
 
 Fixed:: Fixed (Fixed const &obj)
@@ -36,6 +33,11 @@ Fixed& Fixed::operator=(const Fixed &orignal)
     this->fixed_value  = orignal.fixed_value;
     return  *this;
 }
+Fixed:: ~Fixed()
+{
+    std::cout << "Destructor called" << std::endl;
+}
+
 int Fixed::getRawBits( void ) const
 {
     std::cout << "getRawBits member function called" << std::endl;
@@ -46,6 +48,7 @@ void Fixed::setRawBits( int const raw )
 {
     fixed_value = raw; 
 }
+
 
 Fixed::Fixed(const int integer)
 {
@@ -64,13 +67,54 @@ float Fixed::toFloat() const
     float valueFloat =  (float) fixed_value  / (1 << fractional);
     return valueFloat;
 }
+
 int Fixed::toInt () const 
 {
     int valueInt = fixed_value >> fractional ;
     return valueInt;
 }
+
 std::ostream  &operator<< (std::ostream &out, Fixed  const &obj)
 {
     out << obj.toFloat();
     return out;
+}
+
+bool operator>(Fixed const objL,Fixed const &objR)
+{
+    if (objL.toFloat() > objR.toFloat())
+        return true;
+    return false;
+}
+
+bool operator<(Fixed const objL,Fixed const &objR)
+{
+    if (objL.toFloat() < objR.toFloat())
+        return true;
+    return false;
+}
+
+bool operator>=(Fixed const objL,Fixed const &objR)
+{
+    if (objL.toFloat() >= objR.toFloat())
+        return true;
+    return false;
+}
+bool operator<=(Fixed const objL,Fixed const &objR)
+{
+    if (objL.toFloat() <= objR.toFloat())
+        return true;
+    return false;
+}
+bool operator==(Fixed const objL,Fixed const &objR)
+{
+    if (objL.toFloat() == objR.toFloat())
+        return true;
+    return false;
+}
+bool operator !=(Fixed const objL,Fixed const &objR)
+{
+    if (objL.toFloat() != objR.toFloat())
+        return true;
+    return false;
 }

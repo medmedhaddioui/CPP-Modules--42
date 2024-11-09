@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   testign.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 16:21:00 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/10/22 22:26:28 by mel-hadd         ###   ########.fr       */
+/*   Created: 2024/11/09 15:12:45 by mel-hadd          #+#    #+#             */
+/*   Updated: 2024/11/09 15:13:02 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-class Simple
+#include "Fixed.hpp"
+int main( void ) 
 {
-    private:
-        int a;
-    public:
-    Simple (int a) : a(a) {};
-    int getter()
-    {
-        return a;
-    }
-};
-int main ()
-{
-    Simple boy(5);
-    
-    Simple boy2(11);
-
-    boy = boy2;
-    std::cout << boy.getter() << std::endl;
-    std::cout << boy2.getter()<< std::endl;
+    Fixed a;
+    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    std::cout << a << std::endl;
+    std::cout << ++a << std::endl;
+    std::cout << a << std::endl;
+    std::cout << a++ << std::endl;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << Fixed::max( a, b ) << std::endl;
+    return 0;
 }
