@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:12:45 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/09 15:13:02 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/09 21:47:12 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int main( void )
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
     std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
+    // std::cout << Fixed::max( a, b ) << std::endl;
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:12:19 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/09 21:03:46 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/09 21:50:35 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ std::ostream  &operator<< (std::ostream &out, Fixed  const &obj)
     return out;
 }
 
+// comparison
 bool operator>(Fixed const objL,Fixed const &objR)
 {
     if (objL.toFloat() > objR.toFloat())
@@ -117,4 +118,46 @@ bool operator !=(Fixed const objL,Fixed const &objR)
     if (objL.toFloat() != objR.toFloat())
         return true;
     return false;
+}
+
+//arithmetic
+float operator+(Fixed const &objL, Fixed const &objR)
+{
+    return (objL.toFloat() + objR.toFloat());
+}
+float operator-(Fixed const &objL, Fixed const &objR)
+{
+    return (objL.toFloat() - objR.toFloat());
+}
+float operator*(Fixed const &objL, Fixed const &objR)
+{
+    return (objL.toFloat() * objR.toFloat());
+}
+float operator/(Fixed const &objL, Fixed const &objR)
+{
+    return (objL.toFloat() / objR.toFloat());
+}
+
+// Increm-Decre
+Fixed Fixed::operator++()
+{
+    ++this->fixed_value;
+    return *this;
+}
+Fixed Fixed::operator++(int)
+{
+    Fixed copyObj = *this;
+    this->fixed_value++;
+    return copyObj;
+}
+Fixed Fixed::operator--()
+{
+    --this->fixed_value;
+    return *this;
+}
+Fixed Fixed::operator--(int)
+{
+    Fixed copyObj = *this;
+    this->fixed_value--;
+    return copyObj;
 }

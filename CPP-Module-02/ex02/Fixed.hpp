@@ -20,6 +20,11 @@ class Fixed
         void setRawBits( int const raw );
         float toFloat( void ) const;
         int toInt( void ) const;
+        Fixed operator++();
+        Fixed operator++(int);
+        Fixed operator--();
+        Fixed operator--(int);
+
 
 
 };
@@ -31,6 +36,11 @@ bool operator>=(Fixed const objL,Fixed const &objR);
 bool operator<=(Fixed const objL,Fixed const &objR);
 bool operator==(Fixed const objL,Fixed const &objR);
 bool operator!=(Fixed const objL,Fixed const &objR);
+float operator+(Fixed const &objL, Fixed const &objR);
+float operator-(Fixed const &objL, Fixed const &objR);
+float operator*(Fixed const &objL, Fixed const &objR);
+float operator/(Fixed const &objL, Fixed const &objR);
+// Fixed &operator++(int);
 
 
 
