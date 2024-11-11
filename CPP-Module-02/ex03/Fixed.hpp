@@ -47,12 +47,4 @@ class Fixed
 };
 
 std::ostream &operator<< (std::ostream &out, Fixed const &obj);
-
-
-
-
-
-
-
-
 #endif

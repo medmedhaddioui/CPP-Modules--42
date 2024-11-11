@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:32:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/10/17 21:54:01 by medmed           ###   ########.fr       */
+/*   Updated: 2024/11/10 17:12:17 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ int Fixed::getRawBits( void ) const
 
 void Fixed::setRawBits( int const raw ) 
 {
-    fixed_value = raw; // edited;
+    fixed_value = raw;
 }

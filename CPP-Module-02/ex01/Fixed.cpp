@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:32:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/09 19:13:41 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/10 17:13:50 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ Fixed:: Fixed (Fixed const &obj)
 Fixed& Fixed::operator=(const Fixed &orignal)
 {
     std::cout << "Copy assignment operator called" << std::endl;
-    this->fixed_value  = orignal.fixed_value;
+    if (this != &orignal)
+        this->fixed_value  = orignal.fixed_value;
     return  *this;
 }
 int Fixed::getRawBits( void ) const
