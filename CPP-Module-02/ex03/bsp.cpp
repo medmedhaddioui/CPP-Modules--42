@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:29:09 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/11 18:09:15 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:00:02 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     float A = Point::areaCal(a , b , point);
     float B = Point::areaCal(a , point , c);
     float C = Point::areaCal(point , b , c);
-    std:: cout << (A + B + C) << std::endl;
-    std:: cout << all << std::endl;
-
+    if (A == 0 || B == 0 || C == 0)
+        return false;
     if (all == (A + B + C))
         return true;
     else

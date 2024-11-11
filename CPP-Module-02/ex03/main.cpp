@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:12:45 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/11 18:03:03 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/11 19:00:38 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int main( void ) 
 {
-    Point a(Fixed(2), Fixed(3));
-    Point b(Fixed(4), Fixed(5));
-    Point c(Fixed(6), Fixed(2));
-    Point point(Fixed(2), Fixed(3));
+    Point a(Fixed(9.1f), Fixed(7));
+    Point b(Fixed(2.5f), Fixed(7));
+    Point c(Fixed(1), Fixed(23));
+    Point point(Fixed(2.9f), Fixed(14));
     if (bsp (a , b , c ,point))
         std::cout << "inside" << std::endl;
     else 
