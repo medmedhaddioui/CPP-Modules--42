@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:32:23 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/10 17:13:50 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/12 17:22:46 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ Fixed& Fixed::operator=(const Fixed &orignal)
         this->fixed_value  = orignal.fixed_value;
     return  *this;
 }
+
 int Fixed::getRawBits( void ) const
 {
     std::cout << "getRawBits member function called" << std::endl;
@@ -75,3 +76,4 @@ std::ostream  &operator<< (std::ostream &out, Fixed  const &obj)
     out << obj.toFloat();
     return out;
 }
+
