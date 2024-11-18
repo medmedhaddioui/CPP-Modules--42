@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 16:53:21 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/17 12:11:44 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/17 16:32:26 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (HitPoints <= 0)
     {
-        std::cout << "ClapTrap " << name << " can't take damage. Health points left!" << std::endl;
+        std::cout << name << " can't take damage. Health points left!" << std::endl;
         return ;
     }
     std::cout << name << " take Damage, causing losing amount of hit(" << amount << ")" << std::endl;
@@ -77,7 +77,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
     if (EnergyPoints <= 0 || HitPoints <= 0)
     {
-        std::cout << "ClapTrap " << name << " can't repair itself. No energy or Health points left!" << std::endl;
+        std::cout << name << " can't repair itself. No energy or Health points left!" << std::endl;
         return;
     }
     std::cout << name << " Repaired itself by amount of health(" << amount << ")" << std::endl;
