@@ -6,11 +6,12 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:34:07 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/17 18:52:00 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:42:54 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- 
+#include "FragTrap.hpp"
+
 FragTrap::FragTrap() 
 {
     std::cout << "Derived FragTrap Default Constructor called !" << std::endl;
