@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:43:35 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/11/11 18:53:20 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/01 11:06:13 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool Point::operator==(Point const &objR) const
 
 float Point::areaCal(Point  const &obj1, Point  const &obj2, Point const &obj3)
 {
-    return (std::abs((obj1.getX() * (obj2.getY() - obj3.getY())
+    return (std::abs((obj1.x.toFloat * (obj2.getY() - obj3.getY())
          + obj2.getX() * (obj3.getY() - obj1.getY()) 
          + obj3.getX() * (obj1.getY() - obj2.getY())) / 2 )); // edit
 }
