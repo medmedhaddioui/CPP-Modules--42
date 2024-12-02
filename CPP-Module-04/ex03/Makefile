@@ -1,4 +1,4 @@
-NAME = Animal
+NAME = interface
 
 SRC = *.cpp
 

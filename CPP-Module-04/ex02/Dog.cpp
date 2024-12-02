@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:17:09 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/01 12:08:50 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:14:00 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ std::string Dog::getType() const
     return type;
 }
 
-std::string * Dog::getter()
+std::string * Dog::getter() const 
 {
     return (DogBrain->get_ideas());
 }

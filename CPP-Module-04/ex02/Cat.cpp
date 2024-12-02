@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:05:39 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/01 12:08:46 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:13:34 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::string Cat::getType() const
 { 
     return type;
 }
-std::string *Cat::getter()
+std::string *Cat::getter() const 
 {
     return (CatBrain->get_ideas());
 }
