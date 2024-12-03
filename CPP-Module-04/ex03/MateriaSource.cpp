@@ -31,3 +31,7 @@ void MateriaSource::learnMateria(AMateria* materia)
 {
     A[id] = materia->clone();
 }
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    return A[id]->getType();
+}
