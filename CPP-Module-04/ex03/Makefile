@@ -1,6 +1,6 @@
-NAME = interface
+NAME = Interface
 
-SRC = *.cpp
+SRC = *.cpp 
 
 OBJECT = $(SRC:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:33:54 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/02 13:32:47 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:21:53 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,16 @@ Ice &Ice::operator=(Ice const &Robj)
 Ice::~Ice()
 {
     std::cout << "Ice Destructor called !" << std::endl;
+}
+
+AMateria *Ice::clone() const
+{   
+    return new Ice(*this); 
+}
+
+void Ice::use(ICharacter& target)
+{
+    (void) target;
+    std::cout <<  "* shoots an ice bolt at " << "helo" << " *" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:09:39 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/02 13:21:31 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:14:02 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ std::string const & AMateria::getType() const
 }
 void AMateria::use(ICharacter& target)
 {
+    (void) target;
     return ;
 }
