@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
+/*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:59:40 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/03 11:36:24 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/03 18:31:47 by medmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,7 @@ void Character::equip(AMateria* m)
     {
         if (slots[i])
             continue;
-        std::cout << "Equip" << std::endl;
-        slots[i++] =  m->clone();
+        slots[index++] =  m->clone();
         break;
     }
 }

@@ -3,11 +3,14 @@
 MateriaSource::MateriaSource (void)
 {
     std::cout << "Default MateriaSource Constructor called !" << std::endl;
+     id = 0;
 }
 
 MateriaSource::MateriaSource(std::string const &name)
 {
     std::cout << "MateriaSource Constructor called !" << std::endl;
+    this->name = name;
+    id= 0;
 }
  
 MateriaSource::MateriaSource(MateriaSource const &Robj)
@@ -29,9 +32,17 @@ MateriaSource::~MateriaSource()
 }
 void MateriaSource::learnMateria(AMateria* materia)
 {
-    A[id] = materia->clone();
+    A[id++] = materia->clone();
 }
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    return A[id]->getType();
+    for (int i = 0 ; i < 4 ; i++)  
+    {
+        if (A[i]->getType () == type)
+        {
+            std::cout << "Here" << std::endl;
+            return A[i];
+        }
+    }
+    return 0;
 }
