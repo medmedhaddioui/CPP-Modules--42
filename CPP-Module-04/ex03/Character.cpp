@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: medmed <medmed@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:59:40 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/03 18:31:47 by medmed           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:36:26 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 Character::Character (void)
 {
     std::cout << "Default Character Constructor called !" << std::endl;
-    this->index = 0;
     this->name = "Unknown";
     for(int i = 0; i < MAX_SLOTS ; i++)
-        slots[i] = NULL;
+        Inventory[i] = NULL;
+    Materiasave = NULL;
 }
 
 Character::Character(std::string const &name)
 {
     std::cout << "Character Constructor called !" << std::endl;
-    this->index = 0;
     this->name = name;
-    for(int i = 0; i < MAX_SLOTS ; i ++)
-        slots[i] = NULL;
+    for (int i = 0; i < MAX_SLOTS; i++) 
+        Inventory[i] = NULL;
+    Materiasave = NULL;
 }
  
 Character::Character(Character const &Robj)
@@ -41,21 +41,17 @@ Character &Character::operator=(Character const &Robj)
     std::cout << "Character copy assignment Constructor called !" << std::endl;
     if (this == &Robj)
         return *this;
-    // missing slots
     this->name = Robj.getName();
-    this->index = Robj.index;
-    for (int i  = 0; i < MAX_SLOTS ; i ++)
+    for (int i = 0; i < MAX_SLOTS; i++) 
     {
-        if (Robj.slots[i])
-            this->slots[i] = Robj.slots[i]->clone();
+        if (this->Inventory[i])
+            delete Inventory[i];
+        if (Robj.Inventory[i])
+            this->Inventory[i] = Robj.Inventory[i]->clone();  // Deep copy
+        else
+            this->Inventory[i] = NULL;
     }
     return *this;
-}
-
-Character::~Character()
-{
-    std::cout << "Character Destructor called !" << std::endl;
-    // delete [] slots;
 }
 
 std::string const & Character::getName() const
@@ -65,26 +61,45 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-    if (index < 0 && index >= MAX_SLOTS)
-        return;    
-    for (int i  = 0; i <= index ; i ++)
-    {
-        if (slots[i])
-            continue;
-        slots[index++] =  m->clone();
-        break;
-    }
-}
-void Character::unequip(int idx)
-{
-    if (index < 0 && index >= MAX_SLOTS)
+    if (!m)
         return ;
-    std::cout << "unEquip is used" << std::endl;
-    slots[idx] = NULL;
-}
-void Character::use(int idx, ICharacter& target) 
-{
-    if (slots[idx])
-        slots[idx]->use(target);
+    for (int i  = 0; i < MAX_SLOTS ; i ++)
+    {
+        if (Inventory[i])
+            continue;
+        Inventory[i] =  m->clone();
+        std::cout << "Equip is used" << std::endl;
+        return ;
+    }
+    std::cout << "Inventory is Full !!" << std::endl;
 }
 
+void Character::unequip(int idx)
+{
+    if (idx < 0 || idx >= MAX_SLOTS)
+        return ;
+    std::cout << "unEquip is used" << std::endl;
+    Materiasave =  AddNode(Materiasave, CreateNode(Inventory[idx]));
+    Inventory[idx] = NULL;
+}
+
+void Character::use(int idx, ICharacter& target) 
+{
+    if (idx < 0 || idx >= MAX_SLOTS)
+        return ;
+    if (!Inventory[idx])
+        std::cout << "Materia cant be used" << std::endl;
+    else
+        Inventory[idx]->use(target);
+}
+
+Character::~Character()
+{
+    std::cout << "Character Destructor called !" << std::endl;
+    for(int i = 0; i < MAX_SLOTS ; i ++)
+    {
+        if (Inventory[i])
+            delete Inventory[i];
+    }
+    deleteList(Materiasave);
+}

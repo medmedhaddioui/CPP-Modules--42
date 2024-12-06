@@ -3,14 +3,17 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "Linkedlist.hpp"
+
 #define MAX_SLOTS 4
 
 class Character : public ICharacter
 {
     private:
         std::string name;
-        AMateria *slots[MAX_SLOTS];
-        int index;
+        AMateria *Inventory[MAX_SLOTS];
+        t_MateriaSave *Materiasave;
+        
     public:
     Character() ;
     Character(std::string const & name);

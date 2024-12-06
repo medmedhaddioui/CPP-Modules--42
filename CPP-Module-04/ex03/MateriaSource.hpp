@@ -8,8 +8,7 @@ class MateriaSource : public IMateriaSource
 {
     private:
         std::string name;
-        AMateria *A[4];
-        int id;
+        AMateria *learn[4];
     public:
     MateriaSource() ;
     MateriaSource(std::string const & name);
