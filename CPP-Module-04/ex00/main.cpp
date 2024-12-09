@@ -27,5 +27,9 @@ int main()
     j->makeSound();
     meta->makeSound();
     f->makeSound();
+    delete meta;
+    delete i;
+    delete j;
+    delete f;
     return 0;
 }

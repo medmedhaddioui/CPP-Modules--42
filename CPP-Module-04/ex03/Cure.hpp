@@ -5,7 +5,6 @@ class Cure : public AMateria
 {
     public:
     Cure();
-    Cure(std::string const & type);
     Cure(Cure const &Robj);
     Cure &operator=(Cure const &Robj);
     ~Cure();

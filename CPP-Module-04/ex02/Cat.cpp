@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 18:05:39 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/02 11:13:34 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/12/01 12:08:46 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ Cat::Cat (void)
     std::cout << "Default Cat Constructor called !" << std::endl;
     this->type = "Cat";
     this->CatBrain = new Brain;
-}
-
-Cat::Cat(std::string const type) : Animal(type)
-{
-    std::cout << "Cat Constructor called !" << std::endl;
-    this->CatBrain = new Brain("Meow brain");
 }
  
 Cat::Cat(Cat const &Robj) : Animal(Robj)
@@ -37,6 +31,7 @@ Cat &Cat::operator=(Cat const &Robj)
     if (this == &Robj)
         return *this;
     this->type = Robj.type;
+    delete this->CatBrain;
     this->CatBrain = new Brain(*(Robj.CatBrain));
     return *this;
 }
@@ -56,7 +51,7 @@ std::string Cat::getType() const
 { 
     return type;
 }
-std::string *Cat::getter() const 
+std::string *Cat::getter()
 {
     return (CatBrain->get_ideas());
 }

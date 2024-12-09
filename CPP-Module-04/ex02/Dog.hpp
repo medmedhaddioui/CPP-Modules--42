@@ -9,13 +9,12 @@ class Dog : public Animal
         Brain *DogBrain;
     public:
     Dog(void);
-    Dog(std::string type);
     Dog(Dog const &Robj);
     Dog &operator=(Dog const &obj);
     ~Dog();
     
     void makeSound() const ;
     std::string getType() const;
-    std::string *getter() const;
+    std::string *getter();
 };
 #endif

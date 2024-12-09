@@ -18,13 +18,6 @@ Brain::Brain (void)
     for(int i = 0; i < SIZE_NB ; i++)
         ideas[i] = "Unknow Brain";
 }
-
-Brain::Brain(std::string const str)
-{
-    std::cout << "Brain Constructor called !" << std::endl;
-    for(int i = 0; i < SIZE_NB ; i++)
-        ideas[i] = str;
-}
  
 Brain::Brain(Brain const &Robj)
 {

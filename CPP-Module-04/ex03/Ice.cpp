@@ -17,11 +17,6 @@ Ice::Ice (void) : AMateria("ice")
 {
     std::cout << "Default Ice Constructor called !" << std::endl;
 }
-
-Ice::Ice(std::string const &type) : AMateria(type)
-{
-    std::cout << "Ice Constructor called !" << std::endl;
-}
  
 Ice::Ice(Ice const &Robj) : AMateria(Robj.getType())
 {

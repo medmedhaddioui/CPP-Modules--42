@@ -17,11 +17,6 @@ Cure::Cure (void) : AMateria("cure")
 {
     std::cout << "Default Cure Constructor called !" << std::endl;
 }
-
-Cure::Cure(std::string const &type) : AMateria(type)
-{
-    std::cout << "Cure Constructor called !" << std::endl;
-}
  
 Cure::Cure(Cure const &Robj) : AMateria(Robj.getType())
 {

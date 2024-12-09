@@ -6,14 +6,6 @@ MateriaSource::MateriaSource (void)
     for (int i = 0; i < 4 ; i ++)
         learn[i] = NULL;
 }
-
-MateriaSource::MateriaSource(std::string const &name)
-{
-    std::cout << "MateriaSource Constructor called !" << std::endl;
-    this->name = name;
-    for (int i = 0; i < 4 ; i ++)
-        learn[i] = NULL;
-}
  
 MateriaSource::MateriaSource(MateriaSource const &Robj)
 {
@@ -25,8 +17,7 @@ MateriaSource &MateriaSource::operator=(MateriaSource const &Robj)
 {
     std::cout << "MateriaSource copy assignment Constructor called !" << std::endl;
     if (this == &Robj)
-        return *this; 
-    this->name = Robj.name;
+        return *this;
     for (int i = 0 ; i < 4 ; i ++)
     {
         if (this->learn[i])

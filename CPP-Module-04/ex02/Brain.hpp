@@ -9,11 +9,10 @@ class Brain
         std::string ideas[SIZE_NB];
     public:
     Brain(void);
-    Brain(std::string str);
     Brain(Brain const &Robj);
     Brain &operator=(Brain const &obj);
     ~Brain();
 
-    std::string *get_ideas() ;
+    std::string *get_ideas();
 };
 #endif

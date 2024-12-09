@@ -23,8 +23,7 @@ int main()
     j->makeSound();
     delete j;
     delete i;
-    Dog obj("WORD");
-    Dog rob(obj);
+    Dog rob;
     std::cout << rob.getter()[0] << std::endl;
     const Animal *ani[100];
     for (int i = 0 ; i < 100; i++)

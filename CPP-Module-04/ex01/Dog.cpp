@@ -18,12 +18,6 @@ Dog::Dog (void)
     this->type = "Dog";
     this->DogBrain = new Brain;
 }
-
-Dog::Dog(std::string const type) : Animal(type)
-{
-    std::cout << "Dog Constructor called !" << std::endl;
-    this->DogBrain = new Brain("Dog brain");
-}
  
 Dog::Dog(Dog const &Robj) : Animal(Robj)
 {
@@ -37,6 +31,7 @@ Dog &Dog::operator=(Dog const &Robj)
     if (this == &Robj)
         return *this;
     this->type = Robj.type;
+    delete this->DogBrain;
     this->DogBrain = new Brain(*(Robj.DogBrain));
     return *this;
 }

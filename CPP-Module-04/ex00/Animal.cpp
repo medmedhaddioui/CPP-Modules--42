@@ -18,12 +18,6 @@ Animal::Animal (void)
     type = "Unknown";
 }
 
-Animal::Animal(std::string const type)
-{
-    std::cout << "Animal Constructor called !" << std::endl;
-    this->type = type;
-}
- 
 Animal::Animal(Animal const &Robj)
 {
     std::cout << "Animal copy Constructor called !" << std::endl;
@@ -43,10 +37,12 @@ Animal::~Animal()
 {
     std::cout << "Animal Destructor called !" << std::endl;
 }
+
 void Animal::makeSound() const 
 {
     std::cout << "NO SOUND !! " << std::endl;   
 }
+
 std::string Animal::getType() const
 {
     return type;

@@ -7,11 +7,9 @@
 class MateriaSource : public IMateriaSource
 {
     private:
-        std::string name;
         AMateria *learn[4];
     public:
     MateriaSource() ;
-    MateriaSource(std::string const & name);
     MateriaSource(MateriaSource const &Robj);
     MateriaSource &operator=(MateriaSource const &Robj);
     ~MateriaSource();

@@ -10,14 +10,13 @@ class Cat : public Animal
         Brain *CatBrain;
     public:
     Cat(void);
-    Cat(std::string type);
     Cat(Cat const &Robj);
     Cat &operator=(Cat const &obj);
     ~Cat();
     
     void makeSound() const ;
     std::string getType() const ;
-    std::string *getter() const ;
+    std::string *getter();
     
 };
 #endif

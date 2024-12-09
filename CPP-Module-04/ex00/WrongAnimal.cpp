@@ -17,12 +17,6 @@ WrongAnimal::WrongAnimal (void)
     std::cout << "Default WrongAnimal Constructor called !" << std::endl;
     type = "WrongAnimal";
 }
-
-WrongAnimal::WrongAnimal(std::string const type)
-{
-    std::cout << "WrongAnimal Constructor called !" << std::endl;
-    this->type = type;
-}
  
 WrongAnimal::WrongAnimal(WrongAnimal const &Robj)
 {

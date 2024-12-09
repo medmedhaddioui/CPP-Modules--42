@@ -7,7 +7,6 @@ class Cat : public Animal
 {
     public:
     Cat(void);
-    Cat(std::string type);
     Cat(Cat const &Robj);
     Cat &operator=(Cat const &obj);
     ~Cat();

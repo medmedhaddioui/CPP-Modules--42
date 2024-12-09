@@ -18,12 +18,6 @@ Cat::Cat (void)
     this->type = "Cat";
     this->CatBrain = new Brain;
 }
-
-Cat::Cat(std::string const type) : Animal(type)
-{
-    std::cout << "Cat Constructor called !" << std::endl;
-    this->CatBrain = new Brain("Meow brain");
-}
  
 Cat::Cat(Cat const &Robj) : Animal(Robj)
 {
@@ -37,6 +31,7 @@ Cat &Cat::operator=(Cat const &Robj)
     if (this == &Robj)
         return *this;
     this->type = Robj.type;
+    delete this->CatBrain;
     this->CatBrain = new Brain(*(Robj.CatBrain));
     return *this;
 }

@@ -18,11 +18,6 @@ Cat::Cat (void)
     this->type = "Cat";
 }
 
-Cat::Cat(std::string const type) : Animal(type)
-{
-    std::cout << "Cat Constructor called !" << std::endl;
-}
- 
 Cat::Cat(Cat const &Robj) : Animal(Robj)
 {
     std::cout << "Cat copy Constructor called !" << std::endl;
@@ -41,6 +36,7 @@ Cat::~Cat()
 {
     std::cout << "Cat Destructor called !" << std::endl;
 }
+
 void Cat::makeSound() const
 {
     std::cout << "Cat: Meow Meow !!" << std::endl; 

@@ -18,11 +18,6 @@ Dog::Dog (void)
     this->type = "Dog";
 }
 
-Dog::Dog(std::string const type) : Animal(type)
-{
-    std::cout << "Dog Constructor called !" << std::endl;
-}
- 
 Dog::Dog(Dog const &Robj) : Animal(Robj)
 {
     std::cout << "Dog copy Constructor called !" << std::endl;

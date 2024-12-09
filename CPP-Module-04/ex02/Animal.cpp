@@ -6,7 +6,7 @@
 /*   By: mel-hadd <mel-hadd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:45:26 by mel-hadd          #+#    #+#             */
-/*   Updated: 2024/12/02 10:54:46 by mel-hadd         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:29:00 by mel-hadd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@ Animal::Animal (void)
     type = "Unknown";
 }
 
-Animal::Animal(std::string const type)
-{
-    std::cout << "Animal Constructor called !" << std::endl;
-    this->type = type;
-}
- 
 Animal::Animal(Animal const &Robj)
 {
     std::cout << "Animal copy Constructor called !" << std::endl;
@@ -43,7 +37,10 @@ Animal::~Animal()
 {
     std::cout << "Animal Destructor called !" << std::endl;
 }
-
+void Animal::makeSound() const 
+{
+    std::cout << "NO SOUND !! " << std::endl;   
+}
 std::string Animal::getType() const
 {
     return type;
