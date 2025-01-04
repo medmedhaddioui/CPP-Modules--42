@@ -1,71 +1,71 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, int RequiredSign, int RequiredExecute) : name(name) , 
-RequiredSign(RequiredSign) , RequiredExecute (RequiredExecute) , isSigned(false)
+Form::Form() : name("CV"), isSigned(false), RequiredSign(123), RequiredExecute(15) 
 {
-    try
-    {
-        if (this->RequiredSign < 1 || this->RequiredSign > 150 || this->RequiredExecute < 1 || this->RequiredExecute > 150)
-            throw std::exception();
-    }
-    catch(const std::exception& e)
-    {
-        if (this->RequiredSign < 1 || this->RequiredExecute < 1)
-            GradeTooHighException();
-        else
-            GradeTooLowException();
-    }
-};
-
-// void Form::signForm() const 
-// {
-//     if (isSigned)
-//         std::cout << 
-// }
-
-void Form::beSigned(Bureaucrat &Bureaucrat)
-{
-    try 
-    {
-        if (Bureaucrat.getGrade() > RequiredSign)
-            throw std::exception();
-        else
-            isSigned = true;
-    }
-    catch (const std::exception &e)
-    {
-        Form::GradeTooLowException();
-    }
+    std::cout << "Form Constructor called !" << std::endl;
+    if (this->RequiredSign < 1 ||  this->RequiredExecute < 1)
+        throw Form::GradeTooHighException();
+    if (this->RequiredSign > 150 || this->RequiredExecute > 150 )
+        throw Form::GradeTooLowException();
 }
-void Form::GradeTooHighException() const 
+
+Form::Form ( Form const &obj) : name ("CV"), isSigned(false), RequiredSign(123), RequiredExecute(15) 
 {
-    std::cerr << "Grade Too High" << std::endl;
+    std::cout << "Form Copy Constructor called !" << std::endl;
+    *this = obj;
 }
-void Form::GradeTooLowException() const 
+Form &Form::operator=(Form const &obj)
 {
-    std::cerr << "Grade Too Low" << std::endl;
+    std::cout << "Form copy assignment Constructor called !" << std::endl;
+    if (this == &obj)
+        return *this;
+    this->isSigned = obj.getisSigned();
+    return *this;
+}
+Form::~Form()
+{
+    std::cout << "Form Destructor Called !" << std::endl;
+}
+
+bool Form::beSigned(Bureaucrat &Bureaucrat)
+{
+    if (Bureaucrat.getGrade() <= RequiredSign)
+        isSigned = true;
+    else
+        throw Form::GradeTooLowException();
+    return (getisSigned());
 }
 
 int Form::getRequiredSign() const 
 {
     return (this->RequiredSign);
 }
+
 int Form::getRequiredExecute() const 
 {
     return (this->RequiredExecute);
 }
-
 std::string Form::getName() const 
 {
     return (this->name);
 }
-bool Form::getisSigned()
+bool Form::getisSigned() const
 {
     return (this->isSigned);
+}
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return ("Form Grade too High !!");
+}
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return ("Form Grade too Low !!");
 }
 
 std::ostream &operator << (std::ostream &out , Form &obj)
 {
-    out << obj.getName(); // continue
+    out << obj.getName() << " with Required Sign: " << obj.getRequiredSign();
+    out << " and Required Execute: " << obj.getRequiredExecute();
+    out << " with status sign " << obj.getisSigned();
     return out;
 }

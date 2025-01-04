@@ -1,9 +1,9 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
     private:
         const std::string name;
@@ -12,10 +12,10 @@ class Form
         const int RequiredExecute;
     public: 
         // Constructor
-        Form();
-        Form(Form const &obj);
-        Form &operator=(Form const &obj);
-        ~Form();
+        AForm();
+        AForm(AForm const &obj);
+        AForm &operator=(AForm const &obj);
+        ~AForm();
 
         //getters
         std::string getName () const ;
@@ -35,9 +35,9 @@ class Form
         };
 
         // others;
-        bool beSigned(Bureaucrat &Bureaucrat);
+        virtual bool beSigned(Bureaucrat &Bureaucrat) = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, Form &obj);
+std::ostream &operator<<(std::ostream &out, AForm &obj);
 
 #endif

@@ -2,7 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-
+class AForm;
 class Bureaucrat
 {
     private:
@@ -27,6 +27,7 @@ class Bureaucrat
            public:
                 const char * what() const throw();
         };
+        void signForm(AForm &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj);
