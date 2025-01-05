@@ -13,6 +13,7 @@ class AForm
     public: 
         // Constructor
         AForm();
+        AForm (std::string name ,int Sign, int Exec); 
         AForm(AForm const &obj);
         AForm &operator=(AForm const &obj);
         ~AForm();
@@ -23,6 +24,7 @@ class AForm
         int getRequiredExecute() const ;
         bool getisSigned() const ;
 
+        // nested class
         class GradeTooHighException : public std::exception
         {
             public:
@@ -33,9 +35,14 @@ class AForm
            public:
                 const char * what() const throw();
         };
-
+        class NotSignedException : public std::exception 
+        {
+            public :
+                const char * what() const throw();
+        };
         // others;
-        virtual bool beSigned(Bureaucrat &Bureaucrat) = 0;
+        bool beSigned(Bureaucrat const &Bureaucrat);
+        virtual void execute(Bureaucrat const & executor) const = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, AForm &obj);

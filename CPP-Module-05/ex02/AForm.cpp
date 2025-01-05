@@ -1,8 +1,17 @@
 #include "AForm.hpp"
 
-AForm::AForm() : name("CV"), isSigned(false), RequiredSign(123), RequiredExecute(15) 
+AForm::AForm() : name("CV"), isSigned(false), RequiredSign(149), RequiredExecute(149) 
 {
     std::cout << "AForm Constructor called !" << std::endl;
+    if (this->RequiredSign < 1 ||  this->RequiredExecute < 1)
+        throw AForm::GradeTooHighException();
+    if (this->RequiredSign > 150 || this->RequiredExecute > 150 )
+        throw AForm::GradeTooLowException();
+}
+
+AForm::AForm (std::string name ,int Sign , int Exec) : name(name) , RequiredSign (Sign) , RequiredExecute(Exec)
+{
+    std::cout << "AForm param Constructor called !" << std::endl;
     if (this->RequiredSign < 1 ||  this->RequiredExecute < 1)
         throw AForm::GradeTooHighException();
     if (this->RequiredSign > 150 || this->RequiredExecute > 150 )
@@ -27,7 +36,7 @@ AForm::~AForm()
     std::cout << "AForm Destructor Called !" << std::endl;
 }
 
-bool AForm::beSigned(Bureaucrat &Bureaucrat)
+bool AForm::beSigned(Bureaucrat const &Bureaucrat)
 {
     if (Bureaucrat.getGrade() <= RequiredSign)
         isSigned = true;
@@ -35,7 +44,13 @@ bool AForm::beSigned(Bureaucrat &Bureaucrat)
         throw AForm::GradeTooLowException();
     return (getisSigned());
 }
-
+void AForm::execute(Bureaucrat const &executor) const 
+{
+    if (!isSigned)
+        throw AForm::NotSignedException();
+    else if (executor.getGrade() > RequiredExecute)
+        throw AForm::GradeTooLowException();
+}
 int AForm::getRequiredSign() const 
 {
     return (this->RequiredSign);
@@ -60,6 +75,10 @@ const char *AForm::GradeTooHighException::what() const throw()
 const char *AForm::GradeTooLowException::what() const throw()
 {
     return ("AForm Grade too Low !!");
+}
+const char *AForm::NotSignedException::what() const throw ()
+{
+    return ("AForm Not Signed !!");
 }
 
 std::ostream &operator << (std::ostream &out , AForm &obj)

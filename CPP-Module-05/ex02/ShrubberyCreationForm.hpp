@@ -1,17 +1,20 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM__HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include "fstream"
 
 class ShrubberyCreationForm : public AForm
 {
-    private :
-        const int sign;
-        const int exec;
+    private:
+        const std::string target;
     public :
         ShrubberyCreationForm();
-        ShrubberyCreationForm(ShrubberyCreationForm const &Robj);
+        ShrubberyCreationForm(std::string string);
+        ShrubberyCreationForm( ShrubberyCreationForm  const &Robj);
         ShrubberyCreationForm &operator=(ShrubberyCreationForm const &Robj);
         ~ShrubberyCreationForm();
-}
+        void execute(Bureaucrat const & executor) const ;
+        std::string getTarget() const ;
+};
 #endif

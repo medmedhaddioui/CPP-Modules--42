@@ -1,25 +1,45 @@
-#include "Bureaucrat.hpp"
-#include "AForm.hpp"
+// #include "Bureaucrat.hpp"
+// #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main ()
 {
-    try
+    try 
     {
-        // Form Form;
-        Bureaucrat a;
-        a.incrementGrade();
-        // a.signForm(Form);
-        std::cout << a << std::endl;
-        // std::cout << Form << std::endl;
+        Bureaucrat bure;
+        ShrubberyCreationForm obj("Home");
+        bure.signForm(obj);
+        obj.execute(bure);
     }
-    catch (Bureaucrat::GradeTooHighException &e)
+    catch  (AForm::NotSignedException &e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
-    catch (Bureaucrat::GradeTooLowException &e)
+        catch  (AForm::GradeTooLowException &e)
     {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
+        std::cout << e.what() << std::endl;
     }
+    catch  (AForm::GradeTooHighException &e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+    // try
+    // {
+    //     // Form Form;
+    //     // Bureaucrat a;
+    //     // a.incrementGrade();
+    //     // // a.signForm(Form);
+    //     // std::cout << a << std::endl;
+    //     // std::cout << Form << std::endl;
+    // }
+    // catch (Bureaucrat::GradeTooHighException &e)
+    // {
+    //     std::cerr << "Exception caught: " << e.what() << std::endl;
+    // }
+    // catch (Bureaucrat::GradeTooLowException &e)
+    // {
+    //     std::cerr << "Exception caught: " << e.what() << std::endl;
+    // }
     // catch (Form::GradeTooHighException &e)
     // {
     //     std::cerr << "Exception caught: " << e.what() << std::endl;
