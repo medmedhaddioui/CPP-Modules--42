@@ -13,10 +13,6 @@ PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm  const &R
     std::cout << "PresidentialPardonForm copy Constructor called !" << std::endl;
     *this = Robj;
 }
-std::string PresidentialPardonForm::getTarget() const 
-{
-    return (this->target);
-}
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &Robj)
 {
     std::cout << "PresidentialPardonForm copy assignment called !" << std::endl;
@@ -28,6 +24,10 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
 PresidentialPardonForm::~PresidentialPardonForm()
 {
     std::cout << "PresidentialPardonForm Destructor called !" << std::endl;
+}
+std::string PresidentialPardonForm::getTarget() const 
+{
+    return (this->target);
 }
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const 
 {

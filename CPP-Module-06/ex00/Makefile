@@ -1,4 +1,4 @@
-NAME = Forms
+NAME = convert
 
 SRC = *.cpp
 

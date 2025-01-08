@@ -1,7 +1,7 @@
 // #include "Bureaucrat.hpp"
 // #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-
+#include "RobotomyRequestForm.hpp"
 int main ()
 {
     try 
@@ -9,7 +9,7 @@ int main ()
         Bureaucrat bure;
         ShrubberyCreationForm obj("Home");
         bure.signForm(obj);
-        obj.execute(bure);
+        bure.executeForm(obj);
     }
     catch  (AForm::NotSignedException &e)
     {
