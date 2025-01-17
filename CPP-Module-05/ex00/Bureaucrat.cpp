@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat (void) : name("Mark") , grade(1)
+Bureaucrat::Bureaucrat (void) : name("Mark") , grade(2)
 {
     std::cout << "Default Bureaucrat Constructor called !" << std::endl;
     if (grade < 1)
@@ -28,7 +28,6 @@ Bureaucrat::~Bureaucrat()
 {
     std::cout << "Bureaucrat Destructor called !" << std::endl;
 }
-
 
 std::string Bureaucrat::getName() const 
 {

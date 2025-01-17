@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form() : name("CV"), isSigned(false), RequiredSign(123), RequiredExecute(15) 
+Form::Form() : name("CV"), isSigned(false), RequiredSign(122), RequiredExecute(15) 
 {
     std::cout << "Form Constructor called !" << std::endl;
     if (this->RequiredSign < 1 ||  this->RequiredExecute < 1)
@@ -9,11 +9,12 @@ Form::Form() : name("CV"), isSigned(false), RequiredSign(123), RequiredExecute(1
         throw Form::GradeTooLowException();
 }
 
-Form::Form ( Form const &obj) : name ("CV"), isSigned(false), RequiredSign(123), RequiredExecute(15) 
+Form::Form ( Form const &obj) : name ("CV"), isSigned(false), RequiredSign(122), RequiredExecute(15) 
 {
     std::cout << "Form Copy Constructor called !" << std::endl;
     *this = obj;
 }
+
 Form &Form::operator=(Form const &obj)
 {
     std::cout << "Form copy assignment Constructor called !" << std::endl;
@@ -22,6 +23,7 @@ Form &Form::operator=(Form const &obj)
     this->isSigned = obj.getisSigned();
     return *this;
 }
+
 Form::~Form()
 {
     std::cout << "Form Destructor Called !" << std::endl;

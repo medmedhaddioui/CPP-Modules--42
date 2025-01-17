@@ -7,7 +7,7 @@ int main ()
         Bureaucrat bure;
         AForm* rrf;
         Intern someRandomIntern;
-        rrf = someRandomIntern.makeForm("Robotomsy Request", "Bender");
+        rrf = someRandomIntern.makeForm("Robotomy Request", "Bender");
         if (!rrf)
             return 0;
         rrf->beSigned(bure);

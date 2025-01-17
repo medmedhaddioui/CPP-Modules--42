@@ -12,6 +12,7 @@ int main ()
         std::cout << a << std::endl;
         std::cout << Form << std::endl;
     }
+    
     catch (Bureaucrat::GradeTooHighException &e)
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
@@ -28,5 +29,4 @@ int main ()
     {
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
-
 }

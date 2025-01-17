@@ -18,7 +18,7 @@ AForm::AForm (std::string name ,int Sign , int Exec) : name(name) , RequiredSign
         throw AForm::GradeTooLowException();
 }
 
-AForm::AForm ( AForm const &obj) : name ("CV"), isSigned(false), RequiredSign(123), RequiredExecute(15) 
+AForm::AForm ( AForm const &obj) : name ("CV"), isSigned(false), RequiredSign(149), RequiredExecute(149) 
 {
     std::cout << "AForm Copy Constructor called !" << std::endl;
     *this = obj;
@@ -36,21 +36,6 @@ AForm::~AForm()
     std::cout << "AForm Destructor Called !" << std::endl;
 }
 
-bool AForm::beSigned(Bureaucrat const &Bureaucrat)
-{
-    if (Bureaucrat.getGrade() <= RequiredSign)
-        isSigned = true;
-    else
-        throw AForm::GradeTooLowException();
-    return (getisSigned());
-}
-void AForm::execute(Bureaucrat const &executor) const 
-{
-    if (!isSigned)
-        throw AForm::NotSignedException();
-    else if (executor.getGrade() > RequiredExecute)
-        throw AForm::GradeTooLowException();
-}
 int AForm::getRequiredSign() const 
 {
     return (this->RequiredSign);
@@ -68,6 +53,7 @@ bool AForm::getisSigned() const
 {
     return (this->isSigned);
 }
+
 const char *AForm::GradeTooHighException::what() const throw()
 {
     return ("AForm Grade too High !!");
@@ -79,6 +65,23 @@ const char *AForm::GradeTooLowException::what() const throw()
 const char *AForm::NotSignedException::what() const throw ()
 {
     return ("AForm Not Signed !!");
+}
+
+bool AForm::beSigned(Bureaucrat const &Bureaucrat)
+{
+    if (Bureaucrat.getGrade() <= RequiredSign)
+        isSigned = true;
+    else
+        throw AForm::GradeTooLowException();
+    return (getisSigned());
+}
+
+void AForm::execute(Bureaucrat const &executor) const 
+{
+    if (!isSigned)
+        throw AForm::NotSignedException();
+    else if (executor.getGrade() > RequiredExecute)
+        throw AForm::GradeTooLowException();
 }
 
 std::ostream &operator << (std::ostream &out , AForm &obj)

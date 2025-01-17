@@ -28,6 +28,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
     std::cout << "RobotomyRequestForm Destructor called !" << std::endl;
 }
+
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const 
 {
     AForm::execute(executor);

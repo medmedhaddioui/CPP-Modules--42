@@ -15,10 +15,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( ShrubberyCreationForm  const &Robj
     std::cout << "ShrubberyCreationForm copy Constructor called !" << std::endl;
     *this = Robj;
 }
-std::string  ShrubberyCreationForm::getTarget() const 
-{
-    return (this->target);
-}
+
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &Robj)
 {
     std::cout << "ShrubberyCreationForm copy assignment called !" << std::endl;
@@ -31,6 +28,12 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
     std::cout << "ShrubberyCreationForm Destructor called !" << std::endl;
 }
+
+std::string  ShrubberyCreationForm::getTarget() const 
+{
+    return (this->target);
+}
+
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const 
 {   
     AForm::execute(executor);

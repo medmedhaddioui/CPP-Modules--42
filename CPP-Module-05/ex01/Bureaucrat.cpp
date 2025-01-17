@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat (void) : name("Mark") , grade(20)
         throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const &Robj) : name ("Mark"), grade(10)
+Bureaucrat::Bureaucrat(Bureaucrat const &Robj) : name ("Mark"), grade(20)
 {
     std::cout << "Bureaucrat copy Constructor called !" << std::endl;
     *this = Robj;
@@ -60,6 +60,7 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("Bureaucrat Grade Too Low !!");
 }
+
 void Bureaucrat::signForm(Form &form)
 {
     if (form.beSigned(*this) == true)
