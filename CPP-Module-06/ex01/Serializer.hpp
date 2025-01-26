@@ -1,7 +1,13 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP 
 #include "iostream"
-#include "cstdint"
+
+#if __cplusplus >= 201103L
+#include <cstdint>
+#else
+typedef unsigned long uintptr_t; 
+#endif
+
 typedef struct s_data
 {   
     int var;
