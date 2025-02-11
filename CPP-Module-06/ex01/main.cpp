@@ -1,15 +1,15 @@
 #include "Serializer.hpp"
 
-
-
 int main() {
     Data data;
     Serializer obj;
     uintptr_t holder;
-
-    holder = obj.serialize(&data);
-    std::cout << reinterpret_cast <Data *> (holder) << std::endl;
     Data *ptr;
+    data.var = 5;
+
+    holder = obj.serialize((Data * )0xfffffff);
+    std::cout << holder << std::endl;
     ptr = obj.deserialize(holder);
     std::cout << ptr << std::endl;
+    std::cout << ptr->var << std::endl;
 }

@@ -4,13 +4,13 @@
 
 
 template <typename T>
-void iter(T *arr, size_t size, void (*PrintElement)(T element))
+void iter(T *arr, size_t size, void (*PrintElement)(T &))
 {
     for (size_t i = 0; i < size; i ++) 
         PrintElement(arr[i]);
 }
 template <typename T>
-void PrintElement(T element)
+void PrintElement(T &element)
 {
     std::cout << element << std::endl;
 }

@@ -22,6 +22,7 @@ ScalarConverter::~ScalarConverter ()
 {
     std::cout << "ScalarConverter Destructor Called !!" << std::endl;
 }
+
 const char *ScalarConverter::ErrorLiteral::what() const throw()
 {
     return ("Invalid Input !");
@@ -98,7 +99,6 @@ void ScalarConverter::DetectType()
     }
     std::stringstream string(input);
     string >> valueToCast;
-    // int max;
 }
 
 void ScalarConverter::convert(std::string literal)

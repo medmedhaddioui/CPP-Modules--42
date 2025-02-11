@@ -1,22 +1,11 @@
 #ifndef SERIALIZER_HPP
 #define SERIALIZER_HPP 
-#include "iostream"
-
-#if __cplusplus >= 201103L
-#include <cstdint>
-#else
-typedef unsigned long uintptr_t; 
-#endif
-
-typedef struct s_data
-{   
-    int var;
-    
-} Data;
+#include <iostream>
+#include <stdint.h>
+#include "Data.hpp"
 
 class Serializer
 {
-
     public:
         Serializer();
         Serializer(Serializer const &obj);

@@ -1,4 +1,5 @@
 #include "Serializer.hpp"
+
 Serializer::Serializer()
 {
     std::cout << "Serializer Constructor called " << std::endl;
