@@ -34,18 +34,34 @@ void Span::addNumber(int num)
 
 int Span::shortestSpan()
 {
-    // handle erros 
+    if (vec.empty() || vec.size() == 1)
+        throw std::exception();
     std::vector<int>::iterator it = vec.begin();
-    int span = *it - *(it + 1);
-    for (; it != vec.end() ; it++)  
+    int span = std::abs(*it - *(it + 1));
+    for (; it != (vec.end() - 1) ; it++)
     {
-        std::cout << *(it + 1) << std::endl;
         if (std::abs(*it - (*(it + 1))) < span)
             span = std::abs(*it - *(it + 1));
     }
     return span;
 }
+
 int Span::longestSpan()
 {
-    return 1;
+    if (vec.empty() || vec.size() == 1)
+        throw std::exception();
+    std::vector<int>::iterator it = vec.begin();
+    int span = std::abs(*it - *(it + 1));
+    for (; it != (vec.end() - 1) ; it++)  
+    {
+        if (std::abs(*it - (*(it + 1))) > span)
+            span = std::abs(*it - *(it + 1));
+    }
+    return span;
+}
+
+void Span::addNumbers(std::vector<int>::iterator itbegin, std::vector<int>::iterator itend)
+{
+    for (; itbegin != itend ; itbegin++)
+        vec.push_back(*itbegin);
 }
