@@ -10,7 +10,6 @@ int main ()
     {
         easyfind(gqlist, 1212);
         easyfind(gqlist, 7);
-
     }
     catch(const std::exception& e)
     {
