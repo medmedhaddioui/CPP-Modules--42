@@ -9,18 +9,17 @@
 #include <ctime>
 #include <exception>
 #include <sstream>
+#include <iomanip>
 
 class BitcoinExchange 
 {
     private: 
         std::map<std::string, float> map;
     public:
-    static void parse (const char *filename);
-    static void SplitDateValue(std::string line, size_t limits);
-    // class CustomExecption : public std::exception
-    // {   
-    //     public:
-    //         const char *what () const throw ();
-    // };
+    void readInput(const char *filename);
+    void readData();
+    void parsing(std::string line, size_t limits);
+    void CheckValidDateValue(std::string date, std::stringstream &valueStr);
+    float getClosestDate (std::string &date, float value);
 };
 #endif
