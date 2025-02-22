@@ -101,7 +101,8 @@ void BitcoinExchange::readData()
     while (std::getline(dateFile, line))
     {
         std::stringstream ss(line);
-        if (std::getline(ss, date, ',')){
+        if (std::getline(ss, date, ','))
+        {
             ss >> rate ;
             map.insert(std::pair<std::string,float>(date, rate));
         }
