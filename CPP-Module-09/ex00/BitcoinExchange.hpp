@@ -15,7 +15,7 @@ class BitcoinExchange
 {
     private: 
         std::map<std::string, float> map;
-    public:
+    public:// Constructor 
     void readInput(const char *filename);
     void readData();
     void parsing(std::string line, size_t limits);
