@@ -1,4 +1,27 @@
 #include "BitcoinExchange.hpp"
+BitcoinExchange::BitcoinExchange()
+{
+    // std::cout << "Constructor Called " << std::endl;
+}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
+{
+    // std::cout << "copy Constructor Called !" << std::endl;
+    *this = obj;
+}
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange &obj)
+{
+    // std::cout << "copy assingment called" << std::endl;
+    if (this == &obj)
+        return *this;
+    this->map = obj.map;
+    return *this;
+}
+
+BitcoinExchange::~BitcoinExchange()
+{
+    // std::cout << "Destructor Called" << std::endl;
+}
+
 float BitcoinExchange::getClosestDate (std::string &date, float value)
 {
     std::map<std::string, float>:: iterator it = map.lower_bound(date);

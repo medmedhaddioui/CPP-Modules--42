@@ -9,7 +9,7 @@ int main (int ac , char **av)
     try
     {      
         RPN o;
-        o.Solve(av[1]);
+        o.solvePolish(av[1]);
     }
     catch(const std::exception& e)
     {

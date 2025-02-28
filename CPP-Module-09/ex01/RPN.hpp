@@ -5,12 +5,13 @@
 class RPN
 {
     private:
-    std::stack <int> s;
+    std::stack <double> s;
     public :
-        // RPN();
-        // ~RPN();
-        void Solve(std::string av);
-        bool FindNextDigit(std::string &av, size_t &i);
+        RPN();
+        RPN (RPN const &obj);
+        RPN &operator=(RPN const &obj);
+        ~RPN();
+        void solvePolish(std::string av);
         bool isOperator(char c) ;
 };
 #endif 
