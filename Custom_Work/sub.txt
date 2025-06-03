@@ -15,7 +15,7 @@ following protected attributes:
 * name (string)
 * effects (string)
 
-Both will have getters (getName and getEffects) that return strings.
+Both will have getters (getName and getEffects) that return strings.  
 
 Also add a clone pure method that returns a pointer to ASpell.
 
