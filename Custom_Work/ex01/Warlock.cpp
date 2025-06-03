@@ -22,18 +22,7 @@ Warlock::Warlock(std::string const &_name , std::string const &_title)
     this->title = _title;
     std::cout << this->name << ": This looks like another boring day." << std::endl;
 }
-// Warlock::Warlock(Warlock const &obj)
-// {
-//     *this = obj;
-// }
 
-// Warlock &Warlock::operator=(Warlock const &obj){
-//     if (this == &obj)
-//         return *this;
-//     this->title = obj.title;
-//     this->name = obj.name;
-//     return *this;
-// }
 
 Warlock::~Warlock()
 {

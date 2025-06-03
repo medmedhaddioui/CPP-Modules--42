@@ -1,6 +1,11 @@
 #ifndef ASPELL_HPP
 #define ASPELL_HPP
 #include <iostream>
+
+class Atarget;
+
+#include "ATarget.hpp"
+
 class ASpell
 {
     protected:
@@ -15,6 +20,7 @@ class ASpell
     const std::string &getEffects () const;
     const std::string &getName () const;
     virtual ASpell *clone () const = 0;
+    void launch (Atarget const &Atarget) const ;
 };
 
 #endif

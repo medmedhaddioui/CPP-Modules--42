@@ -28,3 +28,8 @@ ASpell &ASpell::operator=(ASpell const &obj){
 }
 
 ASpell::~ASpell() {}
+
+void ASpell::launch (Atarget const &Atarget) const
+{
+    Atarget.getHitBySpell(*this);
+}
