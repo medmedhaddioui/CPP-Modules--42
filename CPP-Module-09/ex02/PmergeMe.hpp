@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <vector>
 #include <sstream>
+    #include <cmath>
 
 class PmergeMe
 {
@@ -15,7 +16,9 @@ class PmergeMe
         PmergeMe& operator=(const PmergeMe &obj);
         ~PmergeMe();
         void checkValidArgs(std::string av);
-        void MergeInsertAlgorithm();
+        void MergeInsertAlgorithm(size_t n );
+        void insertWithJacobsthal (std::vector<std::vector<int> > &main, std::vector<std::vector<int> > &pend);
+ 
 };
 
 #endif
