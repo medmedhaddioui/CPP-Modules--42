@@ -17,7 +17,7 @@ class PmergeMe
         ~PmergeMe();
         void checkValidArgs(std::string av);
         void MergeInsertAlgorithm(size_t n );
-        void insertWithJacobsthal (std::vector<std::vector<int> > &main, std::vector<std::vector<int> > &pend);
+        void insertWithJacobsthal (std::vector<std::vector<int> > &main, std::vector<std::vector<int> > &pend, std::vector<int> rest);
  
 };
 
